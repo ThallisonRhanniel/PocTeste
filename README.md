@@ -82,3 +82,10 @@ To learn more about React Native, take a look at the following resources:
 <!-- Comandos Criar projeto -->
 npx react-native@latest init PocTeste
 npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript
+<!-- Camera -->
+npm install react-native-camera
+
+<!-- build cocoapods no ios -->
+cd ios && pod install
+
+cd .. && npm install -g ios-deploy
