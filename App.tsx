@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -16,13 +16,20 @@ import {
   useColorScheme,
   View,
   TouchableOpacity,
+  Alert,
+  Linking,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-
 import {RNCamera} from 'react-native-camera';
 import {PureComponent} from 'react';
 import {log} from 'console';
+import {
+  Camera,
+  CameraDevice,
+  CameraDevices,
+  useCameraDevices,
+} from 'react-native-vision-camera';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -31,19 +38,39 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  const takePicture = async () => {
-    if (this.camera) {
-      // const options = { quality: 0.5, base64: true };
-      // const data:any = await this.camera.takePictureAsync(options);
-      // alert(data.uri);
-      alert(this.banana);
+  const camera = useRef<Camera>(null);
+  const devices: CameraDevices = useCameraDevices('wide-angle-camera');
+  const device: CameraDevice | undefined = devices.back;
+
+  const [showCamera, setShowCamera] = useState(false);
+  const [imageSource, setImageSource] = useState('');
+
+  useEffect(() => {
+    async function getPermission() {
+      const newCameraPermission = await Camera.requestCameraPermission();
+      // const newMicrophonePermission = await Camera.requestMicrophonePermission();
+      console.log(`Camera permission status: ${newCameraPermission}`);
+      if (newCameraPermission === 'denied') await Linking.openSettings();
+    }
+    getPermission();
+  });
+
+  const capturephoto = async () => {
+    if (camera.current !== null) {
+      const photo = await camera.current.takePhoto({});
+      setImageSource(photo.path);
+      setShowCamera(false);
+      console.log(photo.path);
     }
   };
 
+  if (device == null) {
+    return <Text>Camera not available</Text>;
+  }
+
   return (
     <View style={styles.container}>
-      <Button onPress={this._onPressButton} title="This looks great!" />
-      <RNCamera
+      {/* <RNCamera
         ref={camera => {
           this.camera = camera;
         }}
@@ -55,9 +82,16 @@ function App(): JSX.Element {
         permissionDialogMessage={
           'We need your permission to use your camera phone'
         }
+      /> */}
+      <Camera
+        ref={camera}
+        style={StyleSheet.absoluteFill}
+        device={device}
+        photo={true}
+        isActive={true}
       />
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={takePicture} style={styles.capture}>
+        <TouchableOpacity onPress={capturephoto} style={styles.capture}>
           <Text style={styles.buttonText}> SNAP4 </Text>
         </TouchableOpacity>
       </View>

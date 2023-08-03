@@ -2,7 +2,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 
@@ -78,14 +78,17 @@ To learn more about React Native, take a look at the following resources:
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
 
-
 <!-- Comandos Criar projeto -->
+
 npx react-native@latest init PocTeste
 npm install -D @tsconfig/react-native @types/jest @types/react @types/react-test-renderer typescript
+
 <!-- Camera -->
+
 npm install react-native-camera
 
-<!-- build cocoapods no ios -->
+<!-- build cocoapods no ios | Talvez precise usar o npx pod install-->
+
 cd ios && pod install
 
 cd .. && npm install -g ios-deploy
