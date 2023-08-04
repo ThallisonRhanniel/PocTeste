@@ -1,11 +1,3 @@
 {
-  "compilerOptions": {
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "sourceMap": true
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"],
   "extends": "@tsconfig/react-native/tsconfig.json"
 }

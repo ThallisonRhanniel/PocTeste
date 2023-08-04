@@ -18,6 +18,9 @@ import {
   TouchableOpacity,
   Alert,
   Linking,
+  TouchableNativeFeedback,
+  TouchableWithoutFeedback,
+  TouchableHighlight,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
@@ -30,6 +33,7 @@ import {
   CameraDevices,
   useCameraDevices,
 } from 'react-native-vision-camera';
+import CameraView from './src/screens/CameraView';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -38,64 +42,18 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  const camera = useRef<Camera>(null);
-  const devices: CameraDevices = useCameraDevices('wide-angle-camera');
-  const device: CameraDevice | undefined = devices.back;
-
-  const [showCamera, setShowCamera] = useState(false);
-  const [imageSource, setImageSource] = useState('');
-
-  useEffect(() => {
-    async function getPermission() {
-      const newCameraPermission = await Camera.requestCameraPermission();
-      // const newMicrophonePermission = await Camera.requestMicrophonePermission();
-      console.log(`Camera permission status: ${newCameraPermission}`);
-      if (newCameraPermission === 'denied') await Linking.openSettings();
-    }
-    getPermission();
-  });
-
-  const capturephoto = async () => {
-    if (camera.current !== null) {
-      const photo = await camera.current.takePhoto({});
-      setImageSource(photo.path);
-      setShowCamera(false);
-      console.log(photo.path);
-    }
-  };
-
-  if (device == null) {
-    return <Text>Camera not available</Text>;
-  }
+  const navegarParaTelaCamera = () => {};
 
   return (
-    <View style={styles.container}>
-      {/* <RNCamera
-        ref={camera => {
-          this.camera = camera;
-        }}
-        style={styles.preview}
-        type={RNCamera.Constants.Type.back}
-        autoFocus={RNCamera.Constants.AutoFocus.on}
-        flashMode={RNCamera.Constants.FlashMode.off}
-        permissionDialogTitle={'Permission to use camera'}
-        permissionDialogMessage={
-          'We need your permission to use your camera phone'
-        }
-      /> */}
-      <Camera
-        ref={camera}
-        style={StyleSheet.absoluteFill}
-        device={device}
-        photo={true}
-        isActive={true}
-      />
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={capturephoto} style={styles.capture}>
-          <Text style={styles.buttonText}> SNAP4 </Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={this._onPressButton}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>TouchableOpacity</Text>
+          </View>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -103,6 +61,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
+    alignItems: 'center',
     backgroundColor: 'black',
   },
   preview: {
@@ -115,6 +74,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
   },
+  button: {
+    marginBottom: 30,
+    width: 260,
+    alignItems: 'center',
+    backgroundColor: '#2196F3',
+  },
+  buttonText: {
+    textAlign: 'center',
+    padding: 20,
+    color: 'white',
+  },
   capture: {
     flex: 0,
     backgroundColor: '#fff',
@@ -124,28 +94,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     margin: 20,
   },
-  buttonText: {
-    fontSize: 14,
-  },
 });
-
-// const styles = StyleSheet.create({
-//   sectionContainer: {
-//     marginTop: 32,
-//     paddingHorizontal: 24,
-//   },
-//   sectionTitle: {
-//     fontSize: 24,
-//     fontWeight: '600',
-//   },
-//   sectionDescription: {
-//     marginTop: 8,
-//     fontSize: 18,
-//     fontWeight: '400',
-//   },
-//   highlight: {
-//     fontWeight: '700',
-//   },
-// });
 
 export default App;
