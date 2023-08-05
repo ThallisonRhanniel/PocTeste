@@ -33,7 +33,8 @@ import {
   CameraDevices,
   useCameraDevices,
 } from 'react-native-vision-camera';
-import CameraView from './src/screens/CameraView';
+import CameraView from './src/screens/Camera/camera.view';
+import {AppNavigator} from './AppNavigator';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -45,15 +46,16 @@ function App(): JSX.Element {
   const navegarParaTelaCamera = () => {};
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.container}>
-        <TouchableOpacity onPress={this._onPressButton}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableOpacity</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+    // <SafeAreaView style={styles.container}>
+    //   <View style={styles.container}>
+    //     <TouchableOpacity onPress={this._onPressButton}>
+    //       <View style={styles.button}>
+    //         <Text style={styles.buttonText}>TouchableOpacity</Text>
+    //       </View>
+    //     </TouchableOpacity>
+    //   </View>
+    // </SafeAreaView>
+    <AppNavigator></AppNavigator>
   );
 }
 

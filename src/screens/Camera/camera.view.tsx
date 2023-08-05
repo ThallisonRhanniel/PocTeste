@@ -24,7 +24,7 @@ import {
   useCameraDevices,
 } from 'react-native-vision-camera';
 
-const CameraView = () => {
+const CameraView = ({navigation}: any) => {
   const camera = useRef<Camera>(null);
   const devices: CameraDevices = useCameraDevices('wide-angle-camera');
   const device: CameraDevice | undefined = devices.back;

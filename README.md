@@ -92,3 +92,5 @@ npm install react-native-camera
 cd ios && pod install
 
 cd .. && npm install -g ios-deploy
+
+npx pod-install ios
