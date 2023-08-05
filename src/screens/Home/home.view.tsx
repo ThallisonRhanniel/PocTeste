@@ -23,6 +23,13 @@ const HomeView = ({navigation}: any) => {
           navigation.navigate('CameraView', {name: 'Jane'})
         }
       />
+      <Button
+        title="Go to Net Status"
+        onPress={() =>
+          //console.log("teste", navigation)
+          navigation.navigate('NetView', {name: 'Jane'})
+        }
+      />
     </>
   );
 };
