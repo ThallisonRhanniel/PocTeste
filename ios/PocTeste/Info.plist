@@ -66,5 +66,12 @@
 <!-- optionally, if you want to record audio: -->
 <key>NSMicrophoneUsageDescription</key>
 <string>$(PRODUCT_NAME) needs access to your Microphone.</string>
+
+<!-- GPS: -->
+<key>NSLocationAlwaysUsageDescription</key>
+<string>Localizacão</string>
+
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string>Localizacão2</string>
 </dict>
 </plist>

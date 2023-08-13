@@ -20,23 +20,58 @@ import {useEffect, useState} from 'react';
 // Unsubscribe
 // unsubscribe();
 
+//TODO Fazer um extends
+interface NetInfoStateProps {
+  details: {
+    ipAddress: string;
+    isConnectionExpensive: boolean;
+    subnet: string;
+  };
+  isConnected: boolean;
+  isInternetReachable: boolean;
+  type: string;
+}
+
+type Tomato = NetInfoState & {
+  isConnected: boolean;
+  details: {
+    ipAddress: string;
+    isConnectionExpensive: boolean;
+    subnet: string;
+  };
+};
+
 const NetView = ({navigation}: any) => {
-  const [netStatus, setNetStatus] = useState<NetInfoState>();
+  const [netStatus, setNetStatus] = useState<Tomato>();
+  const [netStatusDetails, setnetStatusDetails] = useState<any>();
 
   useEffect(() => {
     NetInfo.fetch().then(state => {
-      setNetStatus(state);
+      setNetStatus(state as Tomato);
+      setnetStatusDetails(state?.details);
     });
-  }, []);
+  }, [netStatus]);
 
+  console.log(netStatus);
   return (
     <>
-      <StatusBar barStyle="light-content" backgroundColor="#391495" />
       <Text style={{fontWeight: 'bold', color: '#0c0f0c', fontSize: 22}}>
         Tipo de Conexão:
         <Text style={{color: '#268e3e', textTransform: 'capitalize'}}>
           {' '}
           {netStatus?.type}
+        </Text>
+      </Text>
+      <Text style={{fontWeight: 'bold', color: '#0c0f0c', fontSize: 22}}>
+        Está com internet?:
+        <Text style={{color: '#268e3e', textTransform: 'capitalize'}}>
+          {`${netStatus?.isConnected}`}
+        </Text>
+      </Text>
+      <Text style={{fontWeight: 'bold', color: '#0c0f0c', fontSize: 22}}>
+        Meu IP:
+        <Text style={{color: '#268e3e', textTransform: 'capitalize'}}>
+          {netStatus?.details ? `${netStatus?.details.ipAddress}` : 'não d eu'}
         </Text>
       </Text>
       <Button

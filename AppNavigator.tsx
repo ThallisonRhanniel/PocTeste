@@ -12,6 +12,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CameraView from './src/screens/Camera/camera.view';
 import HomeView from './src/screens/Home/home.view';
 import NetView from './src/screens/NetInfo/net.view';
+import GpsView from './src/screens/GPS/gps.view';
 
 const {Navigator, Screen} = createNativeStackNavigator();
 
@@ -40,6 +41,11 @@ const HomeNavigator = () => (
       name="NetView"
       component={NetView}
       options={{title: 'Tela de Status Net'}}
+    />
+    <Screen
+      name="GpsView"
+      component={GpsView}
+      options={{title: 'Tela de GPS'}}
     />
   </Navigator>
 );

@@ -43,7 +43,7 @@ function App(): JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  const navegarParaTelaCamera = () => {};
+  // const navegarParaTelaCamera = () => {};
 
   return (
     // <SafeAreaView style={styles.container}>
