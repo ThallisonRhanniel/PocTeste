@@ -32,7 +32,7 @@ const HomeNavigator = () => (
       component={HomeView}
       options={{
         title: 'Tela Inicial',
-        navigationBarColor: '#2b9682',
+        navigationBarColor: '#2a6363',
         headerTintColor: '#781111',
         statusBarColor: '#2c0556',
         headerRight: () => (

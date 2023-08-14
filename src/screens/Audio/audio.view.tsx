@@ -13,6 +13,7 @@ import {useEffect, useState} from 'react';
 import AudioRecorderPlayer, {
   RecordBackType,
 } from 'react-native-audio-recorder-player';
+import IsPermissionGranted from '../../util/requestPermissionAndroid';
 
 const audioRecorderPlayer = new AudioRecorderPlayer();
 
@@ -93,33 +94,29 @@ const AudioView = ({navigation}: any) => {
       )}
 
       <Button
-        onPress={() => {
-          onStartRecord();
+        onPress={async () => {
+          if (await IsPermissionGranted()) onStartRecord();
         }}
         title="Iniciar gravacão"
       />
 
       <Button
-        onPress={() => {
-          onStopRecord();
+        onPress={async () => {
+          if (await IsPermissionGranted()) onStopRecord();
         }}
         title="Pausar gravacão"
       />
 
       <Button
-        onPress={() => {
-          onStartPlay();
-          let audioisbool = Number(audioData?.currentPositionSec) > 0;
-          console.log(audioisbool);
-          console.log(Number(audioData?.currentPositionSec));
-          console.log(typeof Number(audioData?.currentPositionSec));
+        onPress={async () => {
+          if (await IsPermissionGranted()) onStartPlay();
         }}
         title="Tocar audio"
       />
 
       <Button
-        onPress={() => {
-          onStopPlay();
+        onPress={async () => {
+          if (await IsPermissionGranted()) onStopPlay();
         }}
         title="Pausar audio"
       />

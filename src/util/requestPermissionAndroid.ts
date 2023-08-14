@@ -28,6 +28,8 @@ const IsPermissionGranted = async (): Promise<boolean | undefined> => {
       console.warn(err);
       return false;
     }
+  } else {
+    return true;
   }
 };
 
