@@ -15,7 +15,7 @@ import * as ImagePicker from 'react-native-image-picker';
 /* toggle includeExtra */
 const includeExtra = true;
 
-const PickFileView = ({navigation}: any) => {
+const PickFileImageView = ({navigation}: any) => {
   const [response, setResponse] = React.useState<any>(null);
 
   const onButtonPress = React.useCallback((type: any, options: any) => {
@@ -59,7 +59,7 @@ const PickFileView = ({navigation}: any) => {
   );
 };
 
-export default PickFileView;
+export default PickFileImageView;
 
 const styles = StyleSheet.create({
   container: {
