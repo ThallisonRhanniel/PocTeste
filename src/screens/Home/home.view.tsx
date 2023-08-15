@@ -50,7 +50,7 @@ const HomeView = ({navigation}: any) => {
         title="Go to Pick Image File"
         onPress={() =>
           //console.log("teste", navigation)
-          navigation.navigate('PickFileView', {name: 'Jane'})
+          navigation.navigate('PickFileImageView', {name: 'Jane'})
         }
       />
       <Button
@@ -58,6 +58,13 @@ const HomeView = ({navigation}: any) => {
         onPress={() =>
           //console.log("teste", navigation)
           navigation.navigate('AudioView', {name: 'Jane'})
+        }
+      />
+      <Button
+        title="Go to Picker File"
+        onPress={() =>
+          //console.log("teste", navigation)
+          navigation.navigate('PickerFileView', {name: 'Jane'})
         }
       />
     </>

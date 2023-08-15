@@ -24,6 +24,7 @@ const {Navigator, Screen} = createNativeStackNavigator();
 import {useColorScheme} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import AudioView from './src/screens/Audio/audio.view';
+import PickerFileView from './src/screens/FilePick/filePick.view';
 
 const HomeNavigator = () => (
   <Navigator>
@@ -60,7 +61,7 @@ const HomeNavigator = () => (
       options={{title: 'Tela de GPS'}}
     />
     <Screen
-      name="PickFileView"
+      name="PickFileImageView"
       component={PickFileImageView}
       options={{title: 'Tela de pegar arquivos'}}
     />
@@ -68,6 +69,11 @@ const HomeNavigator = () => (
       name="AudioView"
       component={AudioView}
       options={{title: 'Tela de Gravar audios'}}
+    />
+    <Screen
+      name="PickerFileView"
+      component={PickerFileView}
+      options={{title: 'Tela de Pegar arquivos'}}
     />
   </Navigator>
 );
