@@ -25,6 +25,7 @@ import {useColorScheme} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import AudioView from './src/screens/Audio/audio.view';
 import PickerFileView from './src/screens/FilePick/filePick.view';
+import BiometryView from './src/screens/Biometry/biometry.view';
 
 const HomeNavigator = () => (
   <Navigator>
@@ -74,6 +75,11 @@ const HomeNavigator = () => (
       name="PickerFileView"
       component={PickerFileView}
       options={{title: 'Tela de Pegar arquivos'}}
+    />
+    <Screen
+      name="BiometryView"
+      component={BiometryView}
+      options={{title: 'Tela de Biometria'}}
     />
   </Navigator>
 );

@@ -71,6 +71,9 @@
 <key>NSLocationAlwaysUsageDescription</key>
 <string>Localizacão</string>
 
+<key>NSFaceIDUsageDescription</key>
+<string>Enabling Face ID allows you quick and secure access to your account.</string> 
+
 <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 <string>Localizacão2</string>
 </dict>

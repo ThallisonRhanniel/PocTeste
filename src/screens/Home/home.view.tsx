@@ -67,6 +67,13 @@ const HomeView = ({navigation}: any) => {
           navigation.navigate('PickerFileView', {name: 'Jane'})
         }
       />
+      <Button
+        title="Go to Biometry Page"
+        onPress={() =>
+          //console.log("teste", navigation)
+          navigation.navigate('BiometryView', {name: 'Jane'})
+        }
+      />
     </>
   );
 };
