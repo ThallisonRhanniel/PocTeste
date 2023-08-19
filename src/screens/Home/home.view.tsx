@@ -74,6 +74,13 @@ const HomeView = ({navigation}: any) => {
           navigation.navigate('BiometryView', {name: 'Jane'})
         }
       />
+      <Button
+        title="Go to Signature Page"
+        onPress={() =>
+          //console.log("teste", navigation)
+          navigation.navigate('SignatureView', {name: 'Jane'})
+        }
+      />
     </>
   );
 };

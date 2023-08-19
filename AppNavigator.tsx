@@ -26,6 +26,8 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import AudioView from './src/screens/Audio/audio.view';
 import PickerFileView from './src/screens/FilePick/filePick.view';
 import BiometryView from './src/screens/Biometry/biometry.view';
+import SignatureView from 'react-native-signature-canvas';
+import SignaturePageView from './src/screens/Signature/signature.view';
 
 const HomeNavigator = () => (
   <Navigator>
@@ -80,6 +82,11 @@ const HomeNavigator = () => (
       name="BiometryView"
       component={BiometryView}
       options={{title: 'Tela de Biometria'}}
+    />
+    <Screen
+      name="SignatureView"
+      component={SignaturePageView}
+      options={{title: 'Tela de Assinatura'}}
     />
   </Navigator>
 );
