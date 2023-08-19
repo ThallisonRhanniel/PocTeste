@@ -23,6 +23,8 @@ import DocumentPicker, {
 
 import LocalAuthentication from 'rn-local-authentication';
 import {IsPermissionGrantedForBiometry} from '../../util/requestPermissionAndroid';
+import KeepAwake from '@sayem314/react-native-keep-awake';
+import KeepAwakeExample from '../../components/KeepAwake/keepAwake';
 
 const BiometryView = ({navigation}: any) => {
   const [fileResponse, setFileResponse] = useState<DocumentPickerResponse[]>(
@@ -36,6 +38,7 @@ const BiometryView = ({navigation}: any) => {
         <Text style={{color: '#484e4a', textTransform: 'capitalize'}}> </Text>
         <Text style={{color: '#484e4a', textTransform: 'capitalize'}}> </Text>
       </Text>
+      <KeepAwakeExample></KeepAwakeExample>
       <Button
         onPress={async () => {
           // IsPermissionGrantedForBiometry();

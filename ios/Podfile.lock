@@ -389,6 +389,8 @@ PODS:
     - React
   - react-native-image-picker (5.6.0):
     - React-Core
+  - react-native-keep-awake (1.2.2):
+    - React-Core
   - react-native-local-authentication (1.2.5):
     - React
   - react-native-netinfo (9.4.1):
@@ -573,6 +575,7 @@ DEPENDENCIES:
   - react-native-document-picker (from `../node_modules/react-native-document-picker`)
   - react-native-geolocation-service (from `../node_modules/react-native-geolocation-service`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
+  - "react-native-keep-awake (from `../node_modules/@sayem314/react-native-keep-awake`)"
   - react-native-local-authentication (from `../node_modules/rn-local-authentication`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
@@ -669,6 +672,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-geolocation-service"
   react-native-image-picker:
     :path: "../node_modules/react-native-image-picker"
+  react-native-keep-awake:
+    :path: "../node_modules/@sayem314/react-native-keep-awake"
   react-native-local-authentication:
     :path: "../node_modules/rn-local-authentication"
   react-native-netinfo:
@@ -760,6 +765,7 @@ SPEC CHECKSUMS:
   react-native-document-picker: 2b8f18667caee73a96708a82b284a4f40b30a156
   react-native-geolocation-service: 608e1da71a1ac31b4de64d9ef2815f697978c55b
   react-native-image-picker: db60857e03d63721f19b6f4027de20429ddd9cba
+  react-native-keep-awake: ad1d67f617756b139536977a0bf06b27cec0714a
   react-native-local-authentication: b32196286d1c522aecf1c3510c34e5adaf23021e
   react-native-netinfo: fefd4e98d75cbdd6e85fc530f7111a8afdf2b0c5
   react-native-safe-area-context: 9697629f7b2cda43cf52169bb7e0767d330648c2
