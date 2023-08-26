@@ -68,7 +68,7 @@ const HomeView = ({navigation}: any) => {
         }
       />
       <Button
-        title="Go to Biometry Page"
+        title="Go to Biometry Page and WakeLock"
         onPress={() =>
           //console.log("teste", navigation)
           navigation.navigate('BiometryView', {name: 'Jane'})
