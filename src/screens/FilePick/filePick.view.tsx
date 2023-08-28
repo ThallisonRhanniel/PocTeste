@@ -1,44 +1,10 @@
 import * as React from 'react';
-import {
-  Button,
-  Text,
-  StatusBar,
-  TouchableOpacity,
-  View,
-  StyleSheet,
-  Alert,
-  PermissionsAndroid,
-  Platform,
-  ToastAndroid,
-  Linking,
-  SafeAreaView,
-} from 'react-native';
-import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
-import {useEffect, useState} from 'react';
-import Geolocation, {GeoPosition} from 'react-native-geolocation-service';
-import DocumentPicker, {
-  types,
-  DocumentPickerResponse,
-} from 'react-native-document-picker';
+import {Button, Text, StatusBar, StyleSheet, SafeAreaView} from 'react-native';
+
+import filePickController from './filePick.controller';
 
 const PickerFileView = ({navigation}: any) => {
-  const [fileResponse, setFileResponse] = useState<DocumentPickerResponse[]>(
-    [],
-  );
-
-  const handleDocumentSelection = React.useCallback(async () => {
-    try {
-      const response = await DocumentPicker.pick({
-        //fullScreen | pageSheet | formSheet | overFullScreen
-        presentationStyle: 'pageSheet',
-        // type: [types.pdf],
-        allowMultiSelection: true,
-      });
-      setFileResponse(response);
-    } catch (err) {
-      console.warn(err);
-    }
-  }, []);
+  const {fileResponse, handleDocumentSelection} = filePickController();
 
   return (
     <SafeAreaView style={styles.container}>
