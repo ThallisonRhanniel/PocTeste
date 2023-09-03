@@ -1,25 +1,8 @@
-import * as React from 'react';
-import {
-  Button,
-  Text,
-  StatusBar,
-  TouchableOpacity,
-  View,
-  StyleSheet,
-  Alert,
-  PermissionsAndroid,
-  Platform,
-  ToastAndroid,
-  Linking,
-  SafeAreaView,
-} from 'react-native';
-import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
-import {useEffect, useState} from 'react';
-import Geolocation, {GeoPosition} from 'react-native-geolocation-service';
-import DocumentPicker, {
-  types,
-  DocumentPickerResponse,
-} from 'react-native-document-picker';
+import {Alert} from 'react-native';
+
+import {useState} from 'react';
+
+import {DocumentPickerResponse} from 'react-native-document-picker';
 
 import LocalAuthentication from 'rn-local-authentication';
 import {IsPermissionGrantedForBiometry} from '../../util/resquestPermission';
