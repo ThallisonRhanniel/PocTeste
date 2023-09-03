@@ -27,8 +27,6 @@ const HomeView = ({navigation}: any) => {
       <Button
         title="Go to Camera"
         onPress={() => {
-          let teste = isDarkMode ? 'dark-content' : 'light-content';
-          console.log(teste);
           navigation.navigate('CameraView', {name: 'Jane'});
         }}
       />

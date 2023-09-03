@@ -1,48 +1,11 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Button,
-  Text,
-  useColorScheme,
-  View,
-  TouchableOpacity,
-  Alert,
-  Linking,
-} from 'react-native';
+import React from 'react';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {RNCamera} from 'react-native-camera';
-import {PureComponent} from 'react';
-import {log} from 'console';
-import {
-  Camera,
-  CameraDevice,
-  CameraDevices,
-  useCameraDevices,
-} from 'react-native-vision-camera';
+import {Camera} from 'react-native-vision-camera';
+import cameraController from './camera.controller';
 
 const CameraView = ({navigation}: any) => {
-  const camera = useRef<Camera>(null);
-  const devices: CameraDevices = useCameraDevices('wide-angle-camera');
-  const device: CameraDevice | undefined = devices.back;
-
-  const [showCamera, setShowCamera] = useState(false);
-  const [imageSource, setImageSource] = useState('');
-
-  useEffect(() => {
-    async function getPermission() {
-      const newCameraPermission = await Camera.requestCameraPermission();
-      // const newMicrophonePermission = await Camera.requestMicrophonePermission();
-      console.log(`Camera permission status: ${newCameraPermission}`);
-      if (newCameraPermission === 'denied') await Linking.openSettings();
-    }
-    getPermission();
-  }, []);
-  // Sem nada apos virgula, executa sempre que a tela é renderizada ou quando tiro foto
-  //[] Isso signifca que só é executado uma vez
+  const {camera, device, setImageSource, setShowCamera} = cameraController();
 
   const capturephoto = async () => {
     if (camera.current !== null) {
