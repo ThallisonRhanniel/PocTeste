@@ -4,27 +4,19 @@ import {
   Platform,
   SafeAreaView,
   ScrollView,
-  StatusBar,
   StyleSheet,
   View,
 } from 'react-native';
 import {DemoButton, DemoResponse, DemoTitle} from '../../components';
 
 import * as ImagePicker from 'react-native-image-picker';
+import pickFileImageController from './pickFileImage.controller';
 
 /* toggle includeExtra */
 const includeExtra = true;
 
 const PickFileImageView = ({navigation}: any) => {
-  const [response, setResponse] = React.useState<any>(null);
-
-  const onButtonPress = React.useCallback((type: any, options: any) => {
-    if (type === 'capture') {
-      ImagePicker.launchCamera(options, setResponse);
-    } else {
-      ImagePicker.launchImageLibrary(options, setResponse);
-    }
-  }, []);
+  const {onButtonPress, response} = pickFileImageController();
 
   return (
     <SafeAreaView style={styles.container}>
