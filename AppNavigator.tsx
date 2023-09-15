@@ -38,10 +38,11 @@ const HomeNavigator = () => (
         title: 'Tela Inicial',
         navigationBarColor: '#2a6363',
         headerTintColor: '#781111',
+        headerTransparent: true,
         statusBarColor: '#2c0556',
         headerRight: () => (
           <Button
-            onPress={() => console.log('oi')}
+            onPress={() => console.log('consoleLogTeste')}
             title="Info"
             color="#050435"
           />

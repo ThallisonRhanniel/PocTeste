@@ -11,9 +11,6 @@ const biometryController = () => {
   /**
    * State
    */
-  const [fileResponse, setFileResponse] = useState<DocumentPickerResponse[]>(
-    [],
-  );
 
   /**
    * Callback
@@ -34,6 +31,7 @@ const biometryController = () => {
         Alert.alert('Authenticated successfully!');
       } else {
         Alert.alert('Something went wrong');
+        Alert.alert(`${response.success}`);
       }
     });
   };

@@ -19,7 +19,7 @@ const HomeView = ({navigation}: any) => {
   const isDarkMode = useColorScheme() === 'dark';
   const teste = isDarkMode ? 'dark-content' : 'light-content';
   return (
-    <>
+    <SafeAreaView>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor="#1f192f"
@@ -79,7 +79,7 @@ const HomeView = ({navigation}: any) => {
           navigation.navigate('SignatureView', {name: 'Jane'})
         }
       />
-    </>
+    </SafeAreaView>
   );
 };
 
