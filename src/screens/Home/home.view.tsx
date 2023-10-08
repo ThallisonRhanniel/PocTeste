@@ -79,6 +79,13 @@ const HomeView = ({navigation}: any) => {
           navigation.navigate('SignatureView', {name: 'Jane'})
         }
       />
+      <Button
+        title="Go Password"
+        onPress={() =>
+          //console.log("teste", navigation)
+          navigation.navigate('CadastroPassword', {name: 'Jane'})
+        }
+      />
     </SafeAreaView>
   );
 };
