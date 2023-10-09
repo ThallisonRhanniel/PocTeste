@@ -71,6 +71,7 @@ export function CadastroPasswordView() {
           </View>
         </ScrollView>
       </View>
+      <Toast />
     </KeyboardAvoidingView>
   );
 }
