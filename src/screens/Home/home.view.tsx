@@ -80,6 +80,13 @@ const HomeView = ({navigation}: any) => {
         }
       />
       <Button
+        title="Show Password"
+        onPress={() =>
+          //console.log("teste", navigation)
+          navigation.navigate('ShowPassword', {name: 'Jane'})
+        }
+      />
+      <Button
         title="Go Password"
         onPress={() =>
           //console.log("teste", navigation)

@@ -29,6 +29,7 @@ import BiometryView from './src/screens/Biometry/biometry.view';
 import SignatureView from 'react-native-signature-canvas';
 import SignaturePageView from './src/screens/Signature/signature.view';
 import {CadastroPasswordView} from './src/screens/CadastroPassword/cadastroPassword.view';
+import {ShowPassword} from './src/screens/ShowPassword/showPassowrd.view';
 
 const HomeNavigator = () => (
   <Navigator>
@@ -89,6 +90,11 @@ const HomeNavigator = () => (
       name="SignatureView"
       component={SignaturePageView}
       options={{title: 'Tela de Assinatura'}}
+    />
+    <Screen
+      name="ShowPassword"
+      component={ShowPassword}
+      options={{title: 'Show password'}}
     />
     <Screen
       name="CadastroPassword"

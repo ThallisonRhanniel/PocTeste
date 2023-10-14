@@ -14,12 +14,12 @@ export function HeaderHome() {
   return (
     <View style={styles.container}>
       <Image
-        source={{uri: 'https://github.com/rodrigorgtic.png'}}
+        source={{uri: 'https://github.com/thallisonrhanniel.png'}}
         style={styles.avatar}
       />
 
       <View style={styles.user}>
-        <Text style={styles.title}>Olá, Rodrigo</Text>
+        <Text style={styles.title}>Olá, Thallison</Text>
         <Text style={styles.subtitle}>Sinta-se seguro aqui.</Text>
       </View>
 
